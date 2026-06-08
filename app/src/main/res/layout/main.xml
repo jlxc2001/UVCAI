@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="12dp"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="UVCAI：USB摄像头画面识别"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/spinnerModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/model_array" />
+
+        <Spinner
+            android:id="@+id/spinnerCPUGPU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/cpugpu_array" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonLaunchUsbCameraApp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="打开USB摄像头App" />
+
+    <Button
+        android:id="@+id/buttonStartScreenDetect"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="开始识别当前屏幕" />
+
+    <Button
+        android:id="@+id/buttonStopScreenDetect"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="停止识别" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:text="推荐流程：先打开你已验证可用的 USB Camera App，让摄像头画面正常显示；再返回本 App 启动屏幕识别，切回摄像头 App 后会叠加 HUD LOCK 识别框。\n\n首次运行需要允许：显示在其他应用上层、系统录屏授权。32 位车机建议选择 ELite0_320 + CPU。" />
+</LinearLayout>

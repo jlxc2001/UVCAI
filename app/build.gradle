@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.tencent.nanodetncnn'
+    compileSdk 33
+    ndkVersion "29.0.14206865"
+
+    defaultConfig {
+        applicationId "com.tencent.nanodetncnn"
+        archivesBaseName = "$applicationId"
+        minSdkVersion 24
+        targetSdkVersion 35
+
+        // 你的设备疑似 32 位处理器，先只打 armeabi-v7a，避免装错 64 位库。
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            version "3.31.5"
+            path file('src/main/jni/CMakeLists.txt')
+        }
+    }
+
+    dependencies {
+        implementation 'com.android.support:support-v4:24.0.0'
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+}
